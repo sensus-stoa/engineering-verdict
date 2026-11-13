@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "intake.schema.json",
-  "title": "Заявка на проверку одного утверждения (product brief)",
+  "title": "Заявка на проверку одного утверждения",
   "description": "Минимальный набор от клиента по карточке «ВЫ ДАЁТЕ» одностраничника: одно утверждение, код и настройки, данные или запуск на стороне клиента.",
   "type": "object",
   "required": ["claim", "code_and_settings", "data_or_run"],
@@ -10,6 +10,7 @@
     "claim": {
       "type": "string",
       "minLength": 1,
+      "pattern": "\\S",
       "description": "Одно утверждение о модели, которое нужно проверить, одной фразой."
     },
     "code_and_settings": {

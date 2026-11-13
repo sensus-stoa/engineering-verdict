@@ -26,6 +26,7 @@ cases = [
     ("valid: три поля + одно дополнительное", {**base, "notes": "дополнительное поле"}, True),
     ("invalid: отсутствует claim", {k: v for k, v in base.items() if k != "claim"}, False),
     ("invalid: claim = пустая строка", {**base, "claim": ""}, False),
+    ("invalid: claim = только пробелы", {**base, "claim": "   "}, False),
 ]
 
 failures = 0

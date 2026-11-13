@@ -68,8 +68,8 @@
 
 #grid(columns: (1fr, 1fr), gutter: 12pt,
   [
-    #text(weight: "bold")[Цена и срок.] 800–1200 €, 3–5 рабочих дней
-    от получения материалов. Точная цена — после оценки объёма.
+    #text(weight: "bold")[Цена и срок.] Ориентир: 73–110 тыс ₽ (800–1200 €) Точная цена, после оценки объёма, 3–5 рабочих дней
+    от получения материалов.
   ],
   [
     #text(weight: "bold")[Чего не делаем.] Не обучаем модель. Не выдаём
@@ -81,6 +81,7 @@
 #v(6pt)
 #text(size: 9pt)[
   Пример: #link("https://" + repo-example)[#repo-example] - синтетические данные; проверок на данных энергетики пока не было \
+  Протокол проверки: #link("https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust")[/trust] \
   Подробное описание: #details-url \
   Связь: #contact-email · LinkedIn #contact-linkedin
 ]
