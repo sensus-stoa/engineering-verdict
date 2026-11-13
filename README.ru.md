@@ -41,5 +41,5 @@
 
 ---
 
-Сборка PDF: `typst compile one-pager.typ one-pager.pdf` (Typst 0.15+).
+Сборка русской версии: `typst compile one-pager-ru.typ one-pager-ru.pdf` (Typst 0.15+).
 Текст одностраничника согласован; правки текста и чисел — только владельцем.
