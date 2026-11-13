@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "product-brief.schema.json",
+  "title": "Заявка на проверку одного утверждения (product brief)",
+  "description": "Минимальный набор от клиента по карточке «ВЫ ДАЁТЕ» одностраничника: одно утверждение, код и настройки, данные или запуск на стороне клиента.",
+  "type": "object",
+  "required": ["claim", "code_and_settings", "data_or_run"],
+  "additionalProperties": true,
+  "properties": {
+    "claim": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Одно утверждение о модели, которое нужно проверить, одной фразой."
+    },
+    "code_and_settings": {
+      "description": "Код и настройки: сохранённая версия кода, настройки расчёта, начальные значения, версии библиотек.",
+      "type": ["string", "object"]
+    },
+    "data_or_run": {
+      "description": "Данные (обезличенный фрагмент) либо запуск на стороне клиента.",
+      "type": ["string", "object"]
+    }
+  }
+}
