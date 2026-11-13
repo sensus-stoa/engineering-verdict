@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "intake.schema.json",
-  "title": "Заявка на проверку одного утверждения",
-  "description": "Минимальный набор от клиента по карточке «ВЫ ДАЁТЕ» одностраничника: одно утверждение, код и настройки, данные или запуск на стороне клиента.",
+  "title": "Intake for verifying one claim about your model",
+  "description": "The minimal set a client provides, per the YOU PROVIDE card of the one-pager: one claim, code and settings, data or a run on the client's side.",
   "type": "object",
   "required": ["claim", "code_and_settings", "data_or_run"],
   "additionalProperties": true,
@@ -11,14 +11,14 @@
       "type": "string",
       "minLength": 1,
       "pattern": "\\S",
-      "description": "Одно утверждение о модели, которое нужно проверить, одной фразой."
+      "description": "One claim about the model to verify, in a single sentence."
     },
     "code_and_settings": {
-      "description": "Код и настройки: сохранённая версия кода, настройки расчёта, начальные значения, версии библиотек.",
+      "description": "Code and settings: the saved code version, computation settings, initial values, library versions.",
       "type": ["string", "object"]
     },
     "data_or_run": {
-      "description": "Данные (обезличенный фрагмент) либо запуск на стороне клиента.",
+      "description": "Data (a depersonalized fragment) or a run on the client's side.",
       "type": ["string", "object"]
     }
   }
