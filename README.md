@@ -1,43 +1,45 @@
-# Проверка одного утверждения о вашей модели
+# Verifying one claim about your model
 
-Евгений Долгов. 15 лет бэкенд и архитектура. Один человек, не агентство.
+> 🇷🇺 [Русская версия](README.ru.md)
 
-**ВЫ ДАЁТЕ:** Одно утверждение. Код и настройки. Данные или запуск у вас.
+Evgeniy Dolgov. 15 years in backend and architecture. One person, not an agency.
 
-**МЫ ДЕЛАЕМ:** Фиксируем критерии до прогона. Повторяем расчёт. Проверяем на пустышке.
+**YOU PROVIDE:** One claim. Code and settings. Data, or a run on your side.
 
-**ВЫ ПОЛУЧАЕТЕ:** Подтверждено / не подтверждено / данных мало. Где вывод применять нельзя.
+**WHAT WE DO:** We fix criteria before the run. We reproduce the computation. We run null-data checks.
 
-## Типовая ошибка
+**YOU GET:** Confirmed / not confirmed / not enough data. Where the conclusion does not apply.
 
-Модель показывала 3% ошибки в тесте и 12% в работе. В тест ей подавали
-фактическую погоду за тот же день. В продакшене доступен только лишь
-прогноз. Модель заглядывала в будущее, тест этого не ловил.
+## A typical failure
 
-## Почему нам можно верить
+The model showed 3% error in tests and 12% in production. The tests fed it the actual
+weather for the same day. In production only the forecast is available in advance.
+The model was looking into the future, and the test did not catch it.
 
-В нашем открытом примере наивная проверка приняла чистый шум за сигнал
-в 36 случаях из 50. Мы это измерили и опубликовали вместе с тем, где
-наш метод не работает. Сколько ошибок пропускает сама наша процедура,
-опубликуем до первой платной проверки.
+## Why you can trust this
 
-## Цена и срок
+In our open example, a naive check took pure noise for signal in 36 of 50 cases.
+We measured it and published it, along with the cases where our method does not work.
+How many errors our own procedure misses is published too.
 
-Ориентир: 73–110 тыс ₽ (800–1200 €) Точная цена, после оценки объёма,
-3–5 рабочих дней от получения материалов.
+## Price and timeline
 
-## Чего не делаем
+Reference: 800-1200 EUR, exact price after a scope assessment, 3-5 business days
+from receiving the materials.
 
-Не обучаем модель. Не выдаём сертификат. Не обещаем, что она не сломается.
+## What we do not do
 
-## Контакты
+We do not train the model. We do not issue a certificate. We do not promise it will never break.
 
-- Пример: [github.com/sensus-stoa/permutation-test-ml](https://github.com/sensus-stoa/permutation-test-ml) - синтетические данные; проверок на данных энергетики пока не было
-- Протокол проверки: [/trust](https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust)
-- Подробное описание: [ЗАПОЛНИТЬ: ссылка на подробное описание]
-- Связь: beattle1984@gmail.com · LinkedIn [ЗАПОЛНИТЬ: URL профиля]
+## Contacts
+
+- Example: [github.com/sensus-stoa/permutation-test-ml](https://github.com/sensus-stoa/permutation-test-ml) - synthetic data; not yet tested on real power-sector data
+- Verification protocol: [/trust](https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust)
+- Detailed description: [FILL IN: link to the detailed description]
+- Contact: beattle1984@gmail.com · LinkedIn [FILL IN: profile URL]
 
 ---
 
-Сборка PDF: `typst compile one-pager.typ one-pager.pdf` (Typst 0.15+).
-Текст одностраничника согласован; правки текста и чисел — только владельцем.
+Build the PDF: `typst compile one-pager.typ one-pager.pdf` (Typst 0.15+).
+Russian surface: `one-pager-ru.typ` builds `one-pager-ru.pdf` (its text lives in README.ru.md).
+The one-pager text is agreed; text and number edits are the owner's call.

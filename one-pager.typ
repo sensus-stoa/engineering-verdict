@@ -1,12 +1,12 @@
-// Сборка: typst compile one-pager.typ one-pager.pdf
-// Точки правки — только эти четыре строки:
+// Build: typst compile one-pager.typ one-pager.pdf
+// Edit points - only these four lines:
 #let contact-email = "beattle1984@gmail.com"
-#let contact-linkedin = "[ЗАПОЛНИТЬ: URL профиля]"
+#let contact-linkedin = "[FILL IN: profile URL]"
 #let repo-example = "github.com/sensus-stoa/permutation-test-ml"
-#let details-url = "[ЗАПОЛНИТЬ: ссылка на подробное описание]"
+#let details-url = "[FILL IN: link to the detailed description]"
 
 #set page(paper: "a4", margin: (x: 17mm, y: 15mm))
-#set text(font: ("Libertinus Serif", "DejaVu Sans"), size: 10.5pt, lang: "ru")
+#set text(font: ("Libertinus Serif", "DejaVu Sans"), size: 10.5pt, lang: "en")
 #set par(leading: 0.6em, justify: false)
 
 #let accent = rgb("#1f3a5f")
@@ -23,25 +23,25 @@
 ]
 
 #text(size: 15pt, weight: "bold", fill: accent)[
-  Проверка одного утверждения о вашей модели
+  Verifying one claim about your model
 ]
 #v(3pt)
-Евгений Долгов. 15 лет бэкенд и архитектура. Один человек, не агентство.
+Evgeniy Dolgov. 15 years in backend and architecture. One person, not an agency.
 #v(9pt)
 
 #grid(
   columns: (1fr, auto, 1fr, auto, 1fr), gutter: 5pt,
-  card("ВЫ ДАЁТЕ", [Одно утверждение \ Код и настройки \ Данные или запуск у вас]),
+  card("YOU PROVIDE", [One claim \ Code and settings \ Data, or a run on your side]),
   align(center + horizon, text(size: 13pt, fill: accent)[#sym.arrow.r]),
-  card("МЫ ДЕЛАЕМ", [Фиксируем критерии до прогона \ Повторяем расчёт \ Проверяем на пустышке]),
+  card("WHAT WE DO", [We fix criteria before the run \ We reproduce the computation \ We run null-data checks]),
   align(center + horizon, text(size: 13pt, fill: accent)[#sym.arrow.r]),
-  card("ВЫ ПОЛУЧАЕТЕ", [Подтверждено / не подтверждено / данных мало \ Где вывод применять нельзя]),
+  card("YOU GET", [Confirmed / not confirmed / not enough data \ Where the conclusion does not apply]),
 )
 #v(10pt)
 
-#text(weight: "bold")[Типовая ошибка.] Модель показывала 3% ошибки в тесте и 12% в работе.
-В тест ей подавали фактическую погоду за тот же день. В продакшене доступен только лишь
-прогноз. Модель заглядывала в будущее, тест этого не ловил.
+#text(weight: "bold")[A typical failure.] The model showed 3% error in tests and 12% in production.
+The tests fed it the actual weather for the same day. In production only the forecast
+is available in advance. The model was looking into the future, and the test did not catch it.
 #v(9pt)
 
 #let marks = range(50).map(i => rect(
@@ -53,13 +53,13 @@
   [
     #grid(columns: 10, gutter: 2.5pt, ..marks)
     #v(3pt)
-    #text(size: 8.5pt, fill: bad)[36 из 50]
+    #text(size: 8.5pt, fill: bad)[36 of 50]
   ],
   [
-    #text(weight: "bold")[Почему нам можно верить.] В нашем открытом примере
-    наивная проверка приняла чистый шум за сигнал в 36 случаях из 50. Мы это
-    измерили и опубликовали  вместе с тем, где наш метод не работает.
-    Сколько ошибок пропускает сама наша процедура, опубликуем до первой платной проверки.
+    #text(weight: "bold")[Why you can trust this.] In our open example, a naive check
+    took pure noise for signal in 36 of 50 cases. We measured it and published it,
+    along with the cases where our method does not work. How many errors our own
+    procedure misses is published too.
   ],
 )
 #v(10pt)
@@ -68,20 +68,20 @@
 
 #grid(columns: (1fr, 1fr), gutter: 12pt,
   [
-    #text(weight: "bold")[Цена и срок.] Ориентир: 73–110 тыс ₽ (800–1200 €) Точная цена, после оценки объёма, 3–5 рабочих дней
-    от получения материалов.
+    #text(weight: "bold")[Price and timeline.] Reference: 800-1200 EUR, exact price
+    after a scope assessment, 3-5 business days from receiving the materials.
   ],
   [
-    #text(weight: "bold")[Чего не делаем.] Не обучаем модель. Не выдаём
-    сертификат. Не обещаем, что она не сломается.
+    #text(weight: "bold")[What we do not do.] We do not train the model. We do not
+    issue a certificate. We do not promise it will never break.
   ],
 )
 #v(9pt)
 #line(length: 100%, stroke: 0.5pt + rgb("#dddddd"))
 #v(6pt)
 #text(size: 9pt)[
-  Пример: #link("https://" + repo-example)[#repo-example] - синтетические данные; проверок на данных энергетики пока не было \
-  Протокол проверки: #link("https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust")[/trust] \
-  Подробное описание: #details-url \
-  Связь: #contact-email · LinkedIn #contact-linkedin
+  Example: #link("https://" + repo-example)[#repo-example] - synthetic data; not yet tested on real power-sector data \
+  Verification protocol: #link("https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust")[/trust] \
+  Detailed description: #details-url \
+  Contact: #contact-email · LinkedIn #contact-linkedin
 ]
