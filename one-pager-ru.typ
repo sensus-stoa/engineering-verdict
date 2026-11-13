@@ -81,7 +81,7 @@
 #v(6pt)
 #text(size: 9pt)[
   Пример: #link("https://" + repo-example)[#repo-example] - синтетические данные; проверок на данных энергетики пока не было \
-  Протокол проверки: #link("https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust")[/trust] \
+  Протокол проверки: #link("https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust")[https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust] \
   Подробное описание: #details-url \
   Связь: #contact-email · LinkedIn #contact-linkedin
 ]

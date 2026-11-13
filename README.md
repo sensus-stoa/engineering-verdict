@@ -20,7 +20,7 @@ The model was looking into the future, and the test did not catch it.
 
 In our open example, a naive check took pure noise for signal in 36 of 50 cases.
 We measured it and published it, along with the cases where our method does not work.
-How many errors our own procedure misses is published too.
+How many errors our own procedure misses will be published before the first paid check.
 
 ## Price and timeline
 
@@ -34,7 +34,7 @@ We do not train the model. We do not issue a certificate. We do not promise it w
 ## Contacts
 
 - Example: [github.com/sensus-stoa/permutation-test-ml](https://github.com/sensus-stoa/permutation-test-ml) - synthetic data; not yet tested on real power-sector data
-- Verification protocol: [/trust](https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust)
+- Verification protocol: [https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust](https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust)
 - Detailed description: [FILL IN: link to the detailed description]
 - Contact: beattle1984@gmail.com · LinkedIn [FILL IN: profile URL]
 

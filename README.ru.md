@@ -35,7 +35,7 @@
 ## Контакты
 
 - Пример: [github.com/sensus-stoa/permutation-test-ml](https://github.com/sensus-stoa/permutation-test-ml) - синтетические данные; проверок на данных энергетики пока не было
-- Протокол проверки: [/trust](https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust)
+- Протокол проверки: [https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust](https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust)
 - Подробное описание: [ЗАПОЛНИТЬ: ссылка на подробное описание]
 - Связь: beattle1984@gmail.com · LinkedIn [ЗАПОЛНИТЬ: URL профиля]
 

@@ -59,7 +59,7 @@ is available in advance. The model was looking into the future, and the test did
     #text(weight: "bold")[Why you can trust this.] In our open example, a naive check
     took pure noise for signal in 36 of 50 cases. We measured it and published it,
     along with the cases where our method does not work. How many errors our own
-    procedure misses is published too.
+    procedure misses will be published before the first paid check.
   ],
 )
 #v(10pt)
@@ -81,7 +81,7 @@ is available in advance. The model was looking into the future, and the test did
 #v(6pt)
 #text(size: 9pt)[
   Example: #link("https://" + repo-example)[#repo-example] - synthetic data; not yet tested on real power-sector data \
-  Verification protocol: #link("https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust")[/trust] \
+  Verification protocol: #link("https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust")[https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust] \
   Detailed description: #details-url \
   Contact: #contact-email · LinkedIn #contact-linkedin
 ]
