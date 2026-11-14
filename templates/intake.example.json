@@ -1,0 +1,21 @@
+{
+  "_template": "Product brief / intake form (map v3.6 §3.3, card 'YOU PROVIDE'). Fill it and send to the contact in README. This file validates against schemas/intake.schema.json even before filling - the hard mechanical gate: claim must contain at least one non-whitespace character. _-prefixed keys are guidance and allowed by the schema.",
+  "claim": "FILL-IN: the one claim about your model to verify, in a single sentence (example: 'the forecast error one day ahead does not exceed 5%')",
+  "code_and_settings": {
+    "_comment": "how model variants are produced, how the best one is selected, by which rule a result is considered acceptable; saved code version; computation settings, initial values, library versions",
+    "code_version": "FILL-IN: link or commit hash of the saved code version",
+    "settings": "FILL-IN: computation settings and initial values",
+    "library_versions": "FILL-IN: library versions"
+  },
+  "data_or_run": {
+    "_comment": "either a depersonalized data fragment, or a run on your side - the data does not leave your perimeter",
+    "mode": "FILL-IN: depersonalized-fragment | run-on-your-side",
+    "details": "FILL-IN: what in the data depends on what: time, groups (objects, substations, batches), seasonality, time zone"
+  },
+  "desirable_optional": {
+    "_comment": "optional, from §6 'desirable': run logs, history of rejected variants, known failures. If missing - the work is still possible, but part of the conclusions stays 'not enough data'. Omit the whole field if you have nothing here.",
+    "run_logs": "FILL-IN-or-omit",
+    "rejected_variants_history": "FILL-IN-or-omit",
+    "known_failures": "FILL-IN-or-omit"
+  }
+}

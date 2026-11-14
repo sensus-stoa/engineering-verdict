@@ -2,7 +2,7 @@
 # Validate engineering-verdict schemas with a real validator (jsonschema, draft-07).
 #
 # Coverage:
-#   intake            - 5 cases (client product brief)
+#   intake            - 6 cases (client product brief + shipped example template)
 #   evidence-manifest - 4 cases (valid / bad disclosure / sha256-null without note / mixed role sets)
 #   verdict           - 6 cases: valid + NEGATIVE CONTROLS:
 #       NEG-1: reliability claim (kind=reliability) with PASS and no control  -> must reject
@@ -96,6 +96,12 @@ def built_in_battery():
         ("invalid: claim = empty string", {**base, "claim": ""}, False),
         ("invalid: claim = whitespace only", {**base, "claim": "   "}, False),
     ]
+    intake_template = json.loads(
+        (SCHEMA_DIR.parent / "templates" / "intake.example.json").read_text(encoding="utf-8")
+    )
+    intake_cases.append(
+        ("valid: shipped intake form (templates/intake.example.json)", intake_template, True)
+    )
     failures += run_cases("intake", intake_v, intake_cases)
 
     manifest_v = Draft7Validator(load_schema("evidence-manifest.schema.json"))
