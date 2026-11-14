@@ -3,7 +3,7 @@
 #let contact-email = "beattle1984@gmail.com"
 #let contact-linkedin = "[FILL IN: profile URL]"
 #let repo-example = "github.com/sensus-stoa/permutation-test-ml"
-#let details-url = "[FILL IN: link to the detailed description]"
+#let details-url = "https://github.com/sensus-stoa/engineering-verdict/blob/main/service-description.md"
 
 #set page(paper: "a4", margin: (x: 17mm, y: 15mm))
 #set text(font: ("Libertinus Serif", "DejaVu Sans"), size: 10.5pt, lang: "en")
@@ -82,6 +82,6 @@ is available in advance. The model was looking into the future, and the test did
 #text(size: 9pt)[
   Example: #link("https://" + repo-example)[#repo-example] - synthetic data; not yet tested on real power-sector data \
   Verification protocol: #link("https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust")[https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust] \
-  Detailed description: #details-url \
+  Detailed description: #link(details-url)[#details-url] \
   Contact: #contact-email · LinkedIn #contact-linkedin
 ]

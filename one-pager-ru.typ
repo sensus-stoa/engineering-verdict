@@ -3,7 +3,7 @@
 #let contact-email = "beattle1984@gmail.com"
 #let contact-linkedin = "[ЗАПОЛНИТЬ: URL профиля]"
 #let repo-example = "github.com/sensus-stoa/permutation-test-ml"
-#let details-url = "[ЗАПОЛНИТЬ: ссылка на подробное описание]"
+#let details-url = "https://github.com/sensus-stoa/engineering-verdict/blob/main/service-description.ru.md"
 
 #set page(paper: "a4", margin: (x: 17mm, y: 15mm))
 #set text(font: ("Libertinus Serif", "DejaVu Sans"), size: 10.5pt, lang: "ru")
@@ -82,6 +82,6 @@
 #text(size: 9pt)[
   Пример: #link("https://" + repo-example)[#repo-example] - синтетические данные; проверок на данных энергетики пока не было \
   Протокол проверки: #link("https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust")[https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust] \
-  Подробное описание: #details-url \
+  Подробное описание: #link(details-url)[#details-url] \
   Связь: #contact-email · LinkedIn #contact-linkedin
 ]
