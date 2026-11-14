@@ -20,7 +20,7 @@ The model was looking into the future, and the test did not catch it.
 
 In our open example, a naive check took pure noise for signal in 36 of 50 cases.
 We measured it and published it, along with the cases where our method does not work.
-How many errors our own procedure misses will be published before the first paid check.
+How many errors our own procedure misses will be published before the first paid verification.
 
 ## Price and timeline
 
