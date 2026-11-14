@@ -1,7 +1,7 @@
 // Build: typst compile one-pager.typ one-pager.pdf
 // Edit points - only these four lines:
 #let contact-email = "beattle1984@gmail.com"
-#let contact-linkedin = "[FILL IN: profile URL]"
+#let contact-linkedin = "https://www.linkedin.com/in/evgeny-dolgov-research/"
 #let repo-example = "github.com/sensus-stoa/permutation-test-ml"
 #let details-url = "https://github.com/sensus-stoa/engineering-verdict/blob/main/service-description.md"
 
@@ -83,5 +83,5 @@ is available in advance. The model was looking into the future, and the test did
   Example: #link("https://" + repo-example)[#repo-example] - synthetic data; not yet tested on real power-sector data \
   Verification protocol: #link("https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust")[https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust] \
   Detailed description: #link(details-url)[#details-url] \
-  Contact: #contact-email · LinkedIn #contact-linkedin
+  Contact: #contact-email · LinkedIn #link(contact-linkedin)[#contact-linkedin]
 ]

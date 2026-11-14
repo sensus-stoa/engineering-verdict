@@ -1,7 +1,7 @@
 // Сборка: typst compile one-pager.typ one-pager.pdf
 // Точки правки — только эти четыре строки:
 #let contact-email = "beattle1984@gmail.com"
-#let contact-linkedin = "[ЗАПОЛНИТЬ: URL профиля]"
+#let contact-linkedin = "https://www.linkedin.com/in/evgeny-dolgov-research/"
 #let repo-example = "github.com/sensus-stoa/permutation-test-ml"
 #let details-url = "https://github.com/sensus-stoa/engineering-verdict/blob/main/service-description.ru.md"
 
@@ -40,7 +40,7 @@
 #v(10pt)
 
 #text(weight: "bold")[Типовая ошибка.] Модель показывала 3% ошибки в тесте и 12% в работе.
-В тест ей подавали фактическую погоду за тот же день. В продакшене доступен только лишь
+В тест ей подавали фактическую погоду за тот же день. В продакшене накануне доступен только
 прогноз. Модель заглядывала в будущее, тест этого не ловил.
 #v(9pt)
 
@@ -83,5 +83,5 @@
   Пример: #link("https://" + repo-example)[#repo-example] - синтетические данные; проверок на данных энергетики пока не было \
   Протокол проверки: #link("https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust")[https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust] \
   Подробное описание: #link(details-url)[#details-url] \
-  Связь: #contact-email · LinkedIn #contact-linkedin
+  Связь: #contact-email · LinkedIn #link(contact-linkedin)[#contact-linkedin]
 ]

@@ -159,11 +159,11 @@ a workaround.
   reviewer is engaged; any conflict of interest is stated in the report.
 - No independent replication by a third party has taken place yet. All
   current results are the author's, and every report says so.
-- Before the first paid check we publish a test of the procedure itself:
+- Before the first paid verification we publish a test of the procedure itself:
   we run it on examples with pre-planted errors and on deliberately clean
   ones, and show how many errors were missed and how many clean examples
   were rejected in error - with the number of attempts and an uncertainty
-  bound. Until this test is published, no paid checks are performed.
+  bound. Until this test is published, no paid verifications are performed.
 - We are not physicists and not power engineers. Conclusions about the
   subject domain belong to a domain specialist.
 - An open example of our work: [github.com/sensus-stoa/permutation-test-ml](https://github.com/sensus-stoa/permutation-test-ml). You can also see there

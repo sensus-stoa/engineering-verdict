@@ -13,7 +13,7 @@
 ## Типовая ошибка
 
 Модель показывала 3% ошибки в тесте и 12% в работе. В тест ей подавали
-фактическую погоду за тот же день. В продакшене доступен только лишь
+фактическую погоду за тот же день. В продакшене накануне доступен только
 прогноз. Модель заглядывала в будущее, тест этого не ловил.
 
 ## Почему нам можно верить
@@ -37,7 +37,7 @@
 - Пример: [github.com/sensus-stoa/permutation-test-ml](https://github.com/sensus-stoa/permutation-test-ml) - синтетические данные; проверок на данных энергетики пока не было
 - Протокол проверки: [https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust](https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust)
 - Подробное описание: [https://github.com/sensus-stoa/engineering-verdict/blob/main/service-description.ru.md](https://github.com/sensus-stoa/engineering-verdict/blob/main/service-description.ru.md)
-- Связь: beattle1984@gmail.com · LinkedIn [ЗАПОЛНИТЬ: URL профиля]
+- Связь: beattle1984@gmail.com · LinkedIn [https://www.linkedin.com/in/evgeny-dolgov-research/](https://www.linkedin.com/in/evgeny-dolgov-research/)
 
 ---
 
