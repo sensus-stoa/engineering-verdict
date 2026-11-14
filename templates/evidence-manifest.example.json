@@ -17,13 +17,13 @@
   },
   "evidence": [
     {
-      "_comment": "one item per artifact. File artifact: path + sha256. Publication: url (+date), no sha256. sha256:null is allowed ONLY with a note explaining why (example: results/ is gitignored; regenerate with: <command>). role: vocabulary BLOCKED on owner decision (spec §3.7 client-*/provider-* vs live author-*), see schemas/evidence-manifest.schema.json $comment.",
+      "_comment": "one item per artifact. File artifact: path + sha256. Publication: url (+date), no sha256. sha256:null is allowed ONLY with a note explaining why (example: results/ is gitignored; regenerate with: <command>). role: two vocabularies by owner decision (incident I-002) - spec §3.7 set (client-generated, client-executed, provider-verified, independently reproduced) for client engagements; author-* set (author-generated, author-executed, author-reported) ONLY for public self-audit without a client. DO NOT mix sets within one manifest.",
       "id": "E-01",
-      "type": "FILL-IN: code | dependencies | summary | run-output | publication",
+      "type": "FILL-IN: code | dependencies | summary | run-output | publication | config | log | seed | dataset",
       "path": "FILL-IN-path-or-omit-for-url-type",
       "url": "FILL-IN-or-omit",
       "sha256": "FILL-IN-64-HEX-SHA256-OR-null-WITH-note",
-      "role": "FILL-IN-see-TODO",
+      "role": "FILL-IN-one-set-only-see-comment",
       "disclosure": "FILL-IN: public | client | sealed",
       "note": "FILL-IN: one line on what this artifact is; mandatory if sha256 is null"
     }

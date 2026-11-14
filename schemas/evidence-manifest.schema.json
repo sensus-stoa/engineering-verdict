@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "evidence-manifest.schema.json",
-  "$comment": "Evidence Bundle schema (map v3.6 §3.3), derived from live V-PTM-001 evidence-manifest.json. One schema, two directions: client fills as input package, provider adds roles/hashes. TODO(owner): role vocabulary is BLOCKED on the §3.7 (client-*/provider-*/independently-reproduced) vs live (author-generated/author-executed/author-reported) divergence decision - enum intentionally OPEN until then. protocol_version frozen at CV0-TrustLayer-v3.5 (v3.6 is the map version, not the protocol).",
+  "$comment": "Evidence Bundle schema (map v3.6 §3.3), derived from live V-PTM-001 evidence-manifest.json. One schema, two directions: client fills as input package, provider adds roles/hashes. Role vocabulary (owner decision, incident I-002): two sets - spec §3.7 (client-generated, client-executed, provider-verified, independently reproduced) for client engagements; author-generated/author-executed/author-reported ONLY for public self-audit without a client. Mixing the two sets within one manifest is rejected. author-* is not legacy; no migration planned. protocol_version frozen at CV0-TrustLayer-v3.5 (v3.6 is the map version, not the protocol).",
   "title": "Evidence Bundle (evidence-manifest)",
   "type": "object",
   "required": ["schema", "protocol_version", "date", "object", "criteria_lock", "evidence", "controls"],
@@ -42,7 +42,7 @@
         "patternProperties": { "^_": {} },
         "properties": {
           "id": { "type": "string", "minLength": 2 },
-          "type": { "enum": ["code", "dependencies", "summary", "run-output", "publication"] },
+          "type": { "enum": ["code", "dependencies", "summary", "run-output", "publication", "config", "log", "seed", "dataset"] },
           "path": { "type": "string", "minLength": 1 },
           "url": { "type": "string", "pattern": "^https?://" },
           "sha256": {
@@ -51,7 +51,17 @@
               { "type": "null" }
             ]
           },
-          "role": { "type": "string", "minLength": 1 },
+          "role": {
+            "enum": [
+              "client-generated",
+              "client-executed",
+              "provider-verified",
+              "independently reproduced",
+              "author-generated",
+              "author-executed",
+              "author-reported"
+            ]
+          },
           "disclosure": { "enum": ["public", "client", "sealed"] },
           "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
           "note": { "type": "string" }
@@ -70,7 +80,17 @@
             "then": { "required": ["note"], "properties": { "note": { "type": "string", "minLength": 1 } } }
           }
         ]
-      }
+      },
+      "allOf": [
+        {
+          "if": { "contains": { "properties": { "role": { "pattern": "^author-" } }, "required": ["role"] } },
+          "then": { "items": { "properties": { "role": { "pattern": "^author-" } } } }
+        },
+        {
+          "if": { "contains": { "properties": { "role": { "enum": ["client-generated", "client-executed", "provider-verified", "independently reproduced"] } }, "required": ["role"] } },
+          "then": { "items": { "properties": { "role": { "not": { "pattern": "^author-" } } } } }
+        }
+      ]
     },
     "controls": {
       "type": "array",

@@ -3,12 +3,15 @@
 #
 # Coverage:
 #   intake            - 5 cases (client product brief)
-#   evidence-manifest - 3 cases (valid / bad disclosure / sha256-null without note)
-#   verdict           - 4 cases: valid + NEGATIVE CONTROLS:
+#   evidence-manifest - 4 cases (valid / bad disclosure / sha256-null without note / mixed role sets)
+#   verdict           - 6 cases: valid + NEGATIVE CONTROLS:
 #       NEG-1: reliability claim (kind=reliability) with PASS and no control  -> must reject
 #       NEG-2: INCONCLUSIVE claim without reason_code                         -> must reject
 #       NEG-3: verdict without valid_until                                    -> must reject
-#       NEG-4 (live mode): the published V-PTM-001 must be ACCEPTED
+#       NEG-4: FAIL without reason_code                                       -> must reject
+#       NEG-5: FAIL without verification/evidence                             -> must reject
+#       NEG-7 (live mode): the published V-PTM-001 must be ACCEPTED
+#       (NEG-6 lives in the evidence-manifest group: mixed role sets -> reject)
 #
 # Usage:
 #   python3 schemas/intake_validate.py
@@ -118,10 +121,13 @@ def built_in_battery():
     m_bad_disclosure["evidence"][0]["disclosure"] = "internal"
     m_bad_sha = deepcopy(manifest_ok)
     del m_bad_sha["evidence"][1]["note"]
+    m_mixed = deepcopy(manifest_ok)
+    m_mixed["evidence"][0]["role"] = "author-generated"
     manifest_cases = [
         ("valid: minimal manifest (path+sha, url-type allowed, null+note sha)", manifest_ok, True),
         ("invalid: disclosure outside public|client|sealed", m_bad_disclosure, False),
         ("invalid: sha256 null without explanatory note", m_bad_sha, False),
+        ("NEG-6: mixed role sets (author-* + client-*) in one manifest -> must reject", m_mixed, False),
     ]
     failures += run_cases("evidence-manifest", manifest_v, manifest_cases)
 
@@ -158,11 +164,20 @@ def built_in_battery():
     del v_neg2["claims"][1]["reason_code"]
     v_neg3 = deepcopy(verdict_ok)
     del v_neg3["valid_until"]
+    v_neg4 = deepcopy(verdict_ok)
+    v_neg4["claims"][0]["status"] = "FAIL"
+    v_neg5 = deepcopy(verdict_ok)
+    v_neg5["claims"][0]["status"] = "FAIL"
+    v_neg5["claims"][0]["reason_code"] = "DATA"
+    del v_neg5["claims"][0]["verification"]
+    del v_neg5["claims"][0]["evidence"]
     verdict_cases = [
         ("valid: minimal verdict (reliability PASS with control; INCONCLUSIVE with reason_code)", verdict_ok, True),
         ("NEG-1: reliability PASS without control -> must reject", v_neg1, False),
         ("NEG-2: INCONCLUSIVE without reason_code -> must reject", v_neg2, False),
         ("NEG-3: verdict without valid_until -> must reject", v_neg3, False),
+        ("NEG-4: FAIL without reason_code -> must reject", v_neg4, False),
+        ("NEG-5: FAIL without verification/evidence -> must reject", v_neg5, False),
     ]
     failures += run_cases("verdict", verdict_v, verdict_cases)
 
