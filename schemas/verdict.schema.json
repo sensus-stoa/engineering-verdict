@@ -1,0 +1,112 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "verdict.schema.json",
+  "$comment": "Verdict schema (map v3.6 §3.3), derived from live V-PTM-001 verdict.json. Conditional rules: (1) status FAIL or INCONCLUSIVE -> reason_code required (enum frozen: DATA, GRAMMAR, NOISE, DEPTH, ACCESS, BUDGET, ENVIRONMENT, CONFLICT_EVIDENCE, OUT_OF_SCOPE); (2) a reliability claim (kind=reliability) with status=PASS -> control reference required; the referenced control existing with an N is enforced by schemas/intake_validate.py (referential check - draft-07 cannot cross-reference array items); (3) sha256 null only with an explanatory note. Statuses frozen to PASS/FAIL/INCONCLUSIVE. protocol_version frozen at CV0-TrustLayer-v3.5. valid_until accepts a date or the live sentinel 'object-change'.",
+  "title": "Verdict",
+  "type": "object",
+  "required": ["schema", "verdict_id", "date", "valid_until", "object_version", "protocol_version", "executor", "verifier", "claims", "properties_separate"],
+  "additionalProperties": false,
+  "patternProperties": { "^_": {} },
+  "properties": {
+    "schema": { "const": "trust-verdict/v3.5" },
+    "verdict_id": { "type": "string", "minLength": 3 },
+    "date": { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+    "valid_until": {
+      "anyOf": [
+        { "type": "string", "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+        { "const": "object-change" }
+      ]
+    },
+    "object_version": { "type": "string", "pattern": "^[0-9a-f]{40,64}$" },
+    "protocol_version": { "const": "CV0-TrustLayer-v3.5" },
+    "executor": { "type": "string", "minLength": 1 },
+    "verifier": { "type": "string", "minLength": 1 },
+    "claims": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "status"],
+        "additionalProperties": false,
+        "patternProperties": { "^_": {} },
+        "properties": {
+          "id": { "type": "string", "minLength": 2 },
+          "status": { "enum": ["PASS", "FAIL", "INCONCLUSIVE"] },
+          "kind": {
+            "type": "string",
+            "$comment": "Claim self-classification; only 'reliability' triggers the PASS->control conditional. Live V-PTM-001 claims predate this marker and do not trigger it."
+          },
+          "verification": { "type": "string", "minLength": 1 },
+          "evidence": {
+            "type": "array",
+            "minItems": 1,
+            "items": { "type": "string", "minLength": 2 }
+          },
+          "control": { "type": "string", "minLength": 2 },
+          "reason_code": {
+            "enum": ["DATA", "GRAMMAR", "NOISE", "DEPTH", "ACCESS", "BUDGET", "ENVIRONMENT", "CONFLICT_EVIDENCE", "OUT_OF_SCOPE"]
+          },
+          "note": { "type": "string" }
+        },
+        "allOf": [
+          {
+            "if": { "properties": { "status": { "enum": ["PASS", "FAIL"] } }, "required": ["status"] },
+            "then": {
+              "required": ["verification", "evidence"],
+              "properties": {
+                "verification": { "type": "string", "minLength": 1 },
+                "evidence": { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 2 } }
+              }
+            }
+          },
+          {
+            "if": { "properties": { "status": { "enum": ["FAIL", "INCONCLUSIVE"] } }, "required": ["status"] },
+            "then": { "required": ["reason_code"] }
+          },
+          {
+            "if": {
+              "properties": { "status": { "const": "PASS" }, "kind": { "const": "reliability" } },
+              "required": ["status", "kind"]
+            },
+            "then": { "required": ["control"], "properties": { "control": { "type": "string", "minLength": 2 } } }
+          }
+        ]
+      }
+    },
+    "properties_separate": {
+      "type": "object",
+      "required": ["integrity", "provenance", "reproducibility", "validity"],
+      "additionalProperties": false,
+      "patternProperties": { "^_": {} },
+      "properties": {
+        "integrity": { "type": "string", "minLength": 1 },
+        "provenance": { "type": "string", "minLength": 1 },
+        "reproducibility": { "type": "string", "minLength": 1 },
+        "validity": { "type": "string", "minLength": 1 }
+      }
+    },
+    "negative_controls": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "N"],
+        "additionalProperties": false,
+        "patternProperties": { "^_": {} },
+        "properties": {
+          "id": { "type": "string", "minLength": 2 },
+          "N": { "type": "integer", "minimum": 1 },
+          "rejections": { "type": "integer", "minimum": 0 },
+          "false_rejections": { "type": "integer", "minimum": 0 },
+          "rate": { "type": "number", "minimum": 0, "maximum": 1 },
+          "wilson_ci_95": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "items": { "type": "number", "minimum": 0, "maximum": 1 }
+          },
+          "note": { "type": "string" }
+        }
+      }
+    }
+  }
+}

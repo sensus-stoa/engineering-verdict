@@ -1,0 +1,49 @@
+{
+  "_template": "Evidence Bundle form (map v3.6 §3.3). Fill order: claims -> criteria-lock commit -> THIS manifest -> run -> verdict. This file does NOT validate until placeholders are replaced. Validate after filling: python3 schemas/intake_validate.py <this-file> <verdict-file>. One schema for both directions: client fills as input package, provider adds roles/hashes. _-prefixed keys are guidance and ignored by the schema.",
+  "schema": "trust-manifest/v3.5",
+  "protocol_version": "CV0-TrustLayer-v3.5",
+  "date": "FILL-IN-YYYY-MM-DD",
+  "_date_comment": "date of THIS manifest",
+  "object": {
+    "_comment": "the verified object: repo and the exact commit it is frozen at",
+    "repo": "FILL-IN-https://github.com/OWNER/REPO",
+    "commit": "FILL-IN-40-HEX-SHA1"
+  },
+  "criteria_lock": {
+    "_comment": "commit where claims were fixed in writing BEFORE results were seen; post-hoc changes must be marked and re-run",
+    "commit": "FILL-IN-40-HEX-SHA1",
+    "date": "FILL-IN-YYYY-MM-DD",
+    "note": "FILL-IN: what was locked, where, and that it predates the run"
+  },
+  "evidence": [
+    {
+      "_comment": "one item per artifact. File artifact: path + sha256. Publication: url (+date), no sha256. sha256:null is allowed ONLY with a note explaining why (example: results/ is gitignored; regenerate with: <command>). role: vocabulary BLOCKED on owner decision (spec §3.7 client-*/provider-* vs live author-*), see schemas/evidence-manifest.schema.json $comment.",
+      "id": "E-01",
+      "type": "FILL-IN: code | dependencies | summary | run-output | publication",
+      "path": "FILL-IN-path-or-omit-for-url-type",
+      "url": "FILL-IN-or-omit",
+      "sha256": "FILL-IN-64-HEX-SHA256-OR-null-WITH-note",
+      "role": "FILL-IN-see-TODO",
+      "disclosure": "FILL-IN: public | client | sealed",
+      "note": "FILL-IN: one line on what this artifact is; mandatory if sha256 is null"
+    }
+  ],
+  "controls": [
+    {
+      "_comment": "negative controls: data with no signal by construction. A reliability claim with status=PASS MUST reference one of these (with N) in verdict.json",
+      "id": "NC-FILL-IN",
+      "description": "FILL-IN: what is controlled (example: pure noise, H0 true)",
+      "N": 0,
+      "rejections": 0,
+      "rate": 0.0,
+      "wilson_ci_95": [0.0, 1.0],
+      "note": "FILL-IN-optional"
+    }
+  ],
+  "disclosure_levels": {
+    "_comment": "one line per level actually used; unused levels stay null",
+    "public": "FILL-IN-or-null",
+    "client": null,
+    "sealed": null
+  }
+}

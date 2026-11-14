@@ -1,0 +1,43 @@
+{
+  "_template": "Verdict form (map v3.6 §3.3). Fill order: claims -> criteria-lock commit -> evidence-manifest -> run -> THIS verdict. This file does NOT validate until placeholders are replaced. Validate: python3 schemas/intake_validate.py <manifest-file> <this-file>. Statuses frozen: PASS | FAIL | INCONCLUSIVE. _-prefixed keys are guidance and ignored by the schema.",
+  "schema": "trust-verdict/v3.5",
+  "verdict_id": "FILL-IN-V-PROJECT-NNN",
+  "date": "FILL-IN-YYYY-MM-DD",
+  "valid_until": "FILL-IN-YYYY-MM-DD-or-object-change",
+  "_valid_until_comment": "a date, or the sentinel 'object-change' if the verdict holds until the verified object changes",
+  "object_version": "FILL-IN-40-HEX-SHA1-of-verified-object",
+  "protocol_version": "CV0-TrustLayer-v3.5",
+  "executor": "FILL-IN: who ran the check",
+  "verifier": "FILL-IN: who confirmed it; if author-verified, SAY SO and state independent-reproduction status",
+  "claims": [
+    {
+      "_comment": "one per verified claim. PASS/FAIL require: verification + evidence (ids from the manifest). FAIL/INCONCLUSIVE require reason_code from: DATA, GRAMMAR, NOISE, DEPTH, ACCESS, BUDGET, ENVIRONMENT, CONFLICT_EVIDENCE, OUT_OF_SCOPE. A reliability claim (kind=reliability) with status=PASS MUST carry 'control' referencing a negative control with N.",
+      "id": "C-01",
+      "status": "FILL-IN: PASS | FAIL | INCONCLUSIVE",
+      "kind": "reliability",
+      "_kind_comment": "optional; 'reliability' switches on the PASS->control requirement",
+      "verification": "FILL-IN: how it was verified (e.g. V-01: repeated runs N=50)",
+      "evidence": ["FILL-IN-E-ids-from-manifest"],
+      "control": "FILL-IN-NC-id-required-for-kind=reliability-PASS",
+      "reason_code": "FILL-IN-only-for-FAIL-INCONCLUSIVE",
+      "note": "FILL-IN: the decisive numbers in one line"
+    }
+  ],
+  "properties_separate": {
+    "_comment": "four independent property statements, one line each; they are descriptions, not booleans",
+    "integrity": "FILL-IN: how artifact integrity is ensured (e.g. sha256 per evidence item)",
+    "provenance": "FILL-IN: who generated/executed/reported what; AI assistance disclosed where",
+    "reproducibility": "FILL-IN: what reproduces and what does not; independent replication status",
+    "validity": "FILL-IN: validity boundary of the method on this object"
+  },
+  "negative_controls": [
+    {
+      "_comment": "same controls as in the manifest; claims reference these ids",
+      "id": "NC-FILL-IN",
+      "N": 0,
+      "rejections": 0,
+      "rate": 0.0,
+      "wilson_ci_95": [0.0, 1.0]
+    }
+  ]
+}
