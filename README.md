@@ -34,6 +34,7 @@ We do not train the model. We do not issue a certificate. We do not promise it w
 ## Contacts
 
 - Example: [github.com/sensus-stoa/permutation-test-ml](https://github.com/sensus-stoa/permutation-test-ml) - synthetic data; not yet tested on real power-sector data
+- What the example is: a complete worked case of the same method - claims (C-01..C-05), an evidence bundle, the verdict V-PTM-001, and the limitations list. The schemas in schemas/ were derived from it.
 - Verification protocol: [https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust](https://github.com/sensus-stoa/permutation-test-ml/tree/main/trust)
 - Detailed description: [https://github.com/sensus-stoa/engineering-verdict/blob/main/service-description.md](https://github.com/sensus-stoa/engineering-verdict/blob/main/service-description.md)
 - Contact: beattle1984@gmail.com · LinkedIn [https://www.linkedin.com/in/evgeny-dolgov-research/](https://www.linkedin.com/in/evgeny-dolgov-research/)

@@ -48,7 +48,8 @@ the test is built.
 1. Before the work starts, we record in writing what counts as success and
    what counts as failure. The record is kept with a date from before we see
    any results. This protects against tuning the criteria to a preferred
-   answer.
+   answer. The lock is mechanical: the criteria text is committed before the
+   run, and the lock commit hash is a required field of the evidence bundle.
 2. We reproduce your computation in a clean environment: the same code,
    the same settings, the same initial values. We check whether the same
    numbers come out.
@@ -164,6 +165,7 @@ a workaround.
   ones, and show how many errors were missed and how many clean examples
   were rejected in error - with the number of attempts and an uncertainty
   bound. Until this test is published, no paid verifications are performed.
+  We call this published test the verifier track record.
 - We are not physicists and not power engineers. Conclusions about the
   subject domain belong to a domain specialist.
 - An open example of our work: [github.com/sensus-stoa/permutation-test-ml](https://github.com/sensus-stoa/permutation-test-ml). You can also see there
