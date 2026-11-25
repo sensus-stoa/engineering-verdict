@@ -59,7 +59,10 @@ is available in advance. The model was looking into the future, and the test did
     #text(weight: "bold")[Why you can trust this.] In our open example, a naive check
     took pure noise for signal in 36 of 50 cases. We measured it and published it,
     along with the cases where our method does not work. How many errors our own
-    procedure misses will be published before the first paid verification.
+    procedure misses is published in the open verifier track record
+    (github.com/sensus-stoa/energy-verdict-track-record); its version and numbers
+    live there. Scope caveat: synthetic data, author-executed, machine verdict;
+    bounds live in the record repository.
   ],
 )
 #v(10pt)

@@ -2,7 +2,7 @@
 
 > 🇷🇺 [Русская версия](service-description.ru.md)
 
-Draft, revision 13.11.2026. Terms valid until February 4, 2027
+Revision 25.11.2026. Terms valid until February 4, 2027
 or until the object of verification changes.
 
 ## 1. In short
@@ -157,19 +157,24 @@ a workaround.
 ## 11. The limits of our competence, honestly
 
 - One person performs the check and confirms it. For paid work an external
-  reviewer is engaged; any conflict of interest is stated in the report.
+  reviewer will be engaged; any conflict of interest is stated in the report.
 - No independent replication by a third party has taken place yet. All
   current results are the author's, and every report says so.
-- Before the first paid verification we publish a test of the procedure itself:
-  we run it on examples with pre-planted errors and on deliberately clean
-  ones, and show how many errors were missed and how many clean examples
-  were rejected in error - with the number of attempts and an uncertainty
-  bound. Until this test is published, no paid verifications are performed.
+- The test of the procedure itself is published as the open verifier track
+  record: [github.com/sensus-stoa/energy-verdict-track-record](https://github.com/sensus-stoa/energy-verdict-track-record).
+  We run the procedure on examples with pre-planted errors and deliberately
+  clean ones, and show how many errors were missed and how many clean
+  examples were rejected in error, with the number of attempts and an
+  uncertainty bound. The record is updated as the method grows; paid
+  verifications reference the record version they ship under.
   We call this published test the verifier track record.
 - We are not physicists and not power engineers. Conclusions about the
   subject domain belong to a domain specialist.
-- An open example of our work: [github.com/sensus-stoa/permutation-test-ml](https://github.com/sensus-stoa/permutation-test-ml). You can also see there
-  where the method does not work.
+- Open examples of our work: the worked case
+  [github.com/sensus-stoa/permutation-test-ml](https://github.com/sensus-stoa/permutation-test-ml)
+  (you can also see there where the method does not work), and the verifier
+  track record [github.com/sensus-stoa/energy-verdict-track-record](https://github.com/sensus-stoa/energy-verdict-track-record)
+  (what the procedure catches and what it accuses without cause).
 
 ## 12. How to start
 
@@ -177,7 +182,7 @@ Write which claim about your model you want to verify and what you can
 provide. We will answer whether the task fits and what is needed for
 an estimate. If it does not fit - we will say so directly.
 
-Contact: beattle1984@gmail.com, [profile].
+Contact: beattle1984@gmail.com, [LinkedIn](https://www.linkedin.com/in/evgeny-dolgov-research/).
 Disputes and ambiguous situations are decided by a person, not
 by automation.
 

@@ -20,7 +20,10 @@ The model was looking into the future, and the test did not catch it.
 
 In our open example, a naive check took pure noise for signal in 36 of 50 cases.
 We measured it and published it, along with the cases where our method does not work.
-How many errors our own procedure misses will be published before the first paid verification.
+That number shows the failure mode of naive checks, not our procedure.
+How many errors our own procedure misses is published in the open verifier
+track record: github.com/sensus-stoa/energy-verdict-track-record. The current
+record version and its numbers live there; this page does not duplicate them.
 
 ## Price and timeline
 
